@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Activiy</title>
+	<link rel="stylesheet" href="spectre.css">
+	<link rel="stylesheet" href="main.css">
+</head>
+<body>
+	
+	<center><h1 style="padding-top:20px;">Completa las respuestas.</h1></center>
+
+	<div class="center">
+		
+		<ol>
+			<li>
+
+				<p id="p1">Una <input type="text" id="a1" placeholder="respuesta 1"> es un número que identifica, de manera lógica y jerárquica, cualquier dispositivo conectado a una red. </p>
+
+			</li>
+			<li>
+				
+				<p id="p2">Los dispositivos se conectan entre sí mediante sus respectivas direcciones IP. Sin embargo, para las personas es más fácil recordar un <input type="text" id="a2" placeholder="respuesta 2"> que los números de la dirección IP. </p>
+
+			</li>
+			<li>
+				
+				<p id="p3">Los servidores <input type="text" id="a3" placeholder="respuesta 3"> traducen las direcciones IP a sus respectivos nombres. </p>
+
+			</li>
+			<li>
+				
+				<p id="p4"><input type="text" id="a4" placeholder="respeusta 4"> es un programa utilizado para saber si el DNS está resolviendo correctamente los nombres y las IPs. </p>
+
+			</li>
+			<li>
+				
+				<p id="p5">Un <input type="text" id="a5" placeholder="respuesta 5"> es un ordenador que brinda servicios a las demás computadoras conectadas a el. </p>
+
+			</li>
+		</ul>
+	
+		<center><input type="submit" id="done" value="check"></center>
+	</div>
+
+	<script src="jquery-3.1.0.min.js"></script>
+	<script>
+		var answers = ["direccion IP", "nombre de dominio", "DNS", "nslookup", "servidor"];
+		var cadena = "";
+
+		$("#done").on("click", function(){
+			cadena = "";
+			for(var i = 1; i<=5; i++){
+				var respuesta = $("#a"+i).val();
+				
+				if(respuesta.toLowerCase() == answers[i-1].toLowerCase()){
+					cadena += "La respuesta "+i+" es correcta\n"
+				}else{
+					cadena += "La respuesta "+i+" es incorrecta\n"
+				}
+				
+			}
+
+			if(cadena.indexOf("incorrecta") == -1){
+				alert("¡Perfecto!");
+			}else{
+				alert(cadena);
+			}
+		});
+	</script>
+</body>
+</html>
